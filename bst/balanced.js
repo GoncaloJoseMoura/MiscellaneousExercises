@@ -320,9 +320,35 @@ class Tree {
 
 }
 
-
-let p = new Tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324])
-p.insert(7)
-Tree.prettyPrint(p.root)
-
-p.depth(p.root.left.left.left)
+function createRandomArray(n) {
+    const array = [];
+    for (let i = 0; i < n; i++) {
+      array[i] = Math.floor(Math.random() * 101);
+    }
+    return array;
+  }
+  
+  function addNumbers(n) {
+    const array = createRandomArray(n);
+    for (let i = 0; i < n; i++) {
+      tree.insert(array[i]);
+    }
+  }
+  
+  const tree = new Tree(createRandomArray(7)); // Create a binary search tree from an array of 7 random numbers.
+  Tree.prettyPrint(tree.root); // print tree
+  console.log(`Is Balanced? ${tree.isBalanced()}`); // Check if tree is balanced - result: true
+  console.log(`Lever Order Transversal: ${tree.levelOrder()}`); // Display array of breadth-first level order
+  console.log(`Preorder Transversal: ${tree.preOrder()}`); // Display array of preorder depth-first order
+  console.log(`Postorder Transversal: ${tree.postOrder()}`); // Display array of postorder depth-first order
+  console.log(`Inorder Transversal: ${tree.inOrder()}`); // Display array of inorder depth-first order
+  addNumbers(101); // add 101 random numbers to tree
+  Tree.prettyPrint(tree.root); // print tree
+  console.log(`Is Balanced? ${tree.isBalanced()}`); // Check if tree is balanced - result: false
+  tree.rebalance(); // rebalance tree
+  Tree.prettyPrint(tree.root); // print tree
+  console.log(`Is Balanced? ${tree.isBalanced()}`); // Check if tree is balanced - result: false
+  console.log(`Lever Order Transversal: ${tree.levelOrder()}`); // Display array of breadth-first level order
+  console.log(`Preorder Transversal: ${tree.preOrder()}`); // Display array of preorder depth-first order
+  console.log(`Postorder Transversal: ${tree.postOrder()}`); // Display array of postorder depth-first order
+  console.log(`Inorder Transversal: ${tree.inOrder()}`); // Display array of inorder depth-first order
