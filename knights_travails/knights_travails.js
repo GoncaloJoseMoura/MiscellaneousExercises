@@ -40,7 +40,6 @@ function knightMoves(start, end) {
     let queue = [node]
     while (queue[0] != undefined) {
 
-        console.log(visited)
         let possible_mv = []
         possible_mv = possibleMoves(queue[0].start, end, visited).map(value => {
             visited.add(JSON.stringify(value))
